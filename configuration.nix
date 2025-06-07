@@ -79,30 +79,36 @@
   # apps
   environment.systemPackages = with pkgs; [
     mangohud
+    protonup-qt
     wineWow64Packages.stagingFull
-    nodejs_24
-    zig_0_13
-
-    python313
-
-    dotnet-sdk
-    postgresql
-    dbeaver-bin
-
-    tinywl
-    kitty
 
     git
     gh
     curl
     gcc15
-    jetbrains-mono
-    vlc
-    micro
+    clang-tools
+
+    nodejs_24
+    zig_0_13
+    python313
+
+    helix
     vscode
-    protonup-qt
-    neovim
-    neovim-qt
+    zed-editor
+
+    dotnet-sdk
+    dotnet-runtime
+    dotnet-aspnetcore
+    dotnet-ef
+    omnisharp-roslyn
+
+    postgresql
+    dbeaver-bin
+
+    kitty
+    yazi
+    mpv
+    rofi
     home-manager
   ];
 

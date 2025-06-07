@@ -7,22 +7,29 @@
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.pop-shell
-    gnomeExtensions.paperwm
     gnomeExtensions.emoji-copy
     pop-gtk-theme
     pop-icon-theme
     discord
+    telegram-desktop
     dino
     inputs.zen-browser.packages."${pkgs.system}".default
   ];
   
-  # configure dotfiles (e.g., bash, git)
-  programs.bash = {
+  # configure dotfiles (e.g., fish, git)
+  programs.fish = {
     enable = true;
     shellAliases = {
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake /etc/nixos#pixel";
+      nix-switch = "sudo nixos-rebuild switch --flake /etc/nixos#pixel";
+      nix-update = ''
+        sudo nix flake update /etc/nixos
+        sudo nixos-rebuild switch --flake /etc/nixos#pixel
+      '';
+      nix-delete-all = "sudo nix-collect-garbage -d";
+      nix-delete = ''
+        sudo nix-env --delete-generations +4
+        sudo nix-collect-garbage -d
+      '';
     };
   };
 
@@ -58,8 +65,6 @@
       enabled-extensions = with pkgs.gnomeExtensions; [
         blur-my-shell.extensionUuid
         appindicator.extensionUuid
-        #pop-shell.extensionUuid
-        paperwm.extensionUuid
         emoji-copy.extensionUuid
       ];
     };
