@@ -30,6 +30,13 @@
         sudo nix-env --delete-generations +4
         sudo nix-collect-garbage -d
       '';
+      nix-git = ''
+        cd /etc/nixos
+        sudo git add .
+        sudo git commit -m "justme"
+        sudo git push -u origin master
+        cd -
+      '';
     };
   };
 

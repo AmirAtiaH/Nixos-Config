@@ -51,6 +51,19 @@
   # x11
   services.xserver.enable = true;
   
+
+  # bash/fish
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
+  programs.fish.enable = true;
+
       
   # nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
@@ -61,7 +74,7 @@
   };
 
   hardware.nvidia = {
-    forceFullCompositionPipeline = true;  # fix screen tearing
+    #forceFullCompositionPipeline = true;  # fix screen tearing
     modesetting.enable = true;
     powerManagement.enable = true;
     nvidiaSettings = true;
