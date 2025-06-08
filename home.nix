@@ -10,7 +10,7 @@
     gnomeExtensions.emoji-copy
     pop-gtk-theme
     pop-icon-theme
-    discord
+    vesktop
     telegram-desktop
     dino
     inputs.zen-browser.packages."${pkgs.system}".default
