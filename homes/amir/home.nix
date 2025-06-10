@@ -1,24 +1,22 @@
-{ config, pkgs, inputs, lib, ... }: {
-  home.username = "amir";
-  home.homeDirectory = "/home/amir";
-  home.stateVersion = "25.05";
+{ config, pkgs, inputs, lib, state-version, user-name, git-name, git-mail, ... }: {
 
-  # install user packages (GUI apps, tools, etc.)
-  home.packages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.emoji-copy
-    pop-gtk-theme
-    pop-icon-theme
-    vesktop
-    telegram-desktop
-    dino
-    inputs.zen-browser.packages."${pkgs.system}".default
+  imports = [
+    ./modules
+    ./home-packages.nix
   ];
-  
+
+  home = {
+    username = user-name;
+    homeDirectory = "/home/${user-name}";
+    stateVersion = state-version;
+  };
+
   # configure dotfiles (e.g., fish, git)
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
     shellAliases = {
       nix-switch = "sudo nixos-rebuild switch --flake /etc/nixos#pixel";
       nix-update = ''
@@ -43,8 +41,8 @@
 
   programs.git = {
     enable = true;
-    userName = "AmirAtiaH";
-    userEmail = "amir.gppume@gmail.com";
+    userName = git-name;
+    userEmail = git-mail;
   };
 
 
@@ -68,7 +66,7 @@
     };
     
     "org/gnome/shell" = {
-      disable-user-extensions = false; # enables user extensions
+      disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
         blur-my-shell.extensionUuid
         appindicator.extensionUuid
