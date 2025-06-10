@@ -4,8 +4,9 @@
   services = {
     gnome.gnome-keyring.enable = true;
   };
+  security.polkit.enable = true;
 
-  /*systemd = {
+  systemd = {
     user.services = {
       polkit-gnome-authentication-agent-1 = {
         description = "polkit-gnome-authentication-agent-1";
@@ -31,7 +32,7 @@
         };
       };
     };
-  };*/
+  };
 
   xdg.portal = {
     enable = true;
@@ -79,10 +80,10 @@
     cliphist
   ];
 
-  environment.pathsToLink = [
+  /*environment.pathsToLink = [
     "/share/xdg-desktop-portal"
     "/share/applications"
-  ];
+  ];*/
 
   programs = {
     niri = {
