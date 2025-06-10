@@ -39,12 +39,11 @@
     postgresql
     dbeaver-bin
 
-    ghostty
     kitty
     eww
+    fuzzel
     yazi
     mpv
-    rofi
     home-manager
 
     # Custom inputs (e.g., zen-browser)

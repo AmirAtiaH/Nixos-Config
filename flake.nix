@@ -16,9 +16,15 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # stylix
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, stylix, ... } @ inputs:
   let
 
 
@@ -40,6 +46,7 @@
       };
       modules = [
         ./hosts/${host-name}/default.nix
+        stylix.nixosModules.stylix
       ];
     };
 

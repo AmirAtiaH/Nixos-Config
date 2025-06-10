@@ -46,7 +46,7 @@
   };
 
 
-  dconf.settings = {
+  /*dconf.settings = {
     "org/gnome/desktop/input-sources" = {
       sources = [
         (lib.hm.gvariant.mkTuple ["xkb" "us"])
@@ -97,7 +97,7 @@
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/http" = "zen-browser.desktop";
     "x-scheme-handler/https" = "zen-browser.desktop";
-  };
+  };*/
 
 
   # let Home Manager manage itself (required)

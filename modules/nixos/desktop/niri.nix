@@ -20,7 +20,7 @@
           TimeoutStopSec = 10;
         };
       };
-      niri-flake-polkit.enable = false;
+      niri-flake-polkit.enable = true;
 
       cliphist = {
         description = "wl-paste + cliphist service";

@@ -12,7 +12,9 @@
       ../../modules/nixos/boot-loader.nix
       ../../modules/nixos/fish.nix
       ../../modules/nixos/gaming.nix
-      ../../modules/nixos/gnome.nix
+     # ../../modules/nixos/desktop/gnome.nix
+      ../../modules/nixos/desktop/niri.nix
+      ../../modules/nixos/stylix.nix
       ../../modules/nixos/kernel.nix
       ../../modules/nixos/localization.nix
       ../../modules/nixos/networking.nix
