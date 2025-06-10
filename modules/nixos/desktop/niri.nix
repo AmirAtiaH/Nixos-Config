@@ -5,7 +5,7 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  systemd = {
+  /*systemd = {
     user.services = {
       polkit-gnome-authentication-agent-1 = {
         description = "polkit-gnome-authentication-agent-1";
@@ -31,7 +31,7 @@
         };
       };
     };
-  };
+  };*/
 
   xdg.portal = {
     enable = true;
@@ -77,6 +77,11 @@
     wofi-power-menu
     xwayland-satellite
     cliphist
+  ];
+
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+    "/share/applications"
   ];
 
   programs = {
