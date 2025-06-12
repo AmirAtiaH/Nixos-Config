@@ -1,12 +1,12 @@
-{ inputs, lib, pkgs, ... }: {
+{ inputs, lib, pkgs, config, ... }: {
 
 
   imports = [
-    inputs.niri.nixosModules.niri
+    inputs.niri.homeModules.niri
   ];
 
   programs.niri.settings = {
-    /*environment = {
+    environment = {
       CLUTTER_BACKEND = "wayland";
       DISPLAY = ":0";
       GDK_BACKEND = "wayland,x11";
@@ -19,11 +19,11 @@
       TERM = "kitty";
       TERMINAL = "kitty";
       XMODIFIERS = "@im=fcitx";
-    };*/
+    };
     input = {
       keyboard = {
         xkb.layout = "us,ara";
-        numlock = true;
+        #numlock = true;
       };
       power-key-handling.enable = true;
       warp-mouse-to-focus = false;

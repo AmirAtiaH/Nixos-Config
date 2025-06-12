@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, state-version, user-name, git-name, git-mail, ... }: {
+{ pkgs, inputs, lib, config, state-version, user-name, git-name, git-mail, ... }: {
 
   imports = [
     ./packages.nix
@@ -110,25 +110,20 @@
         emoji-copy.extensionUuid
       ];
     };
-  };
+  };*/
 
 
   gtk = {
     enable = true;
     theme = {
-      name = "Pop-dark";
-      package = pkgs.pop-gtk-theme;
-    };
-    iconTheme = {
-      name = "Pop";
-      package = pkgs.pop-icon-theme;
+      name = "adwaita-dark";
     };
   };
 
   qt = {
     enable = true;
     platformTheme.name = "adwaita-dark";
-  };*/
+  };
 
 
   xdg.mimeApps.defaultApplications = {
