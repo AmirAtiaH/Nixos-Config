@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, state-version, user-name, git-name, git-mail, ... }: {
+{ pkgs, inputs, lib, state-version, user-name, git-name, git-mail, ... }: {
 
   imports = [
     ./packages.nix
@@ -9,7 +9,7 @@
 
 
 
-  options = {
+  /*options = {
     hm = {
       modules = lib.mkOption {
         default = [ ];
@@ -22,7 +22,7 @@
         description = "State Version of home-manager. DON'T CHANGE UNLESS NESSESAIRY!";
       };
     };
-  };
+  };*/
 
 
 

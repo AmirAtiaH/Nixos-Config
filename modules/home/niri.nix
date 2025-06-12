@@ -1,4 +1,4 @@
-{ niri, ... }: {
+{ inputs, lib, pkgs, ... }: {
 
 
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   programs.niri.settings = {
-    environment = {
+    /*environment = {
       CLUTTER_BACKEND = "wayland";
       DISPLAY = ":0";
       GDK_BACKEND = "wayland,x11";
@@ -19,7 +19,7 @@
       TERM = "kitty";
       TERMINAL = "kitty";
       XMODIFIERS = "@im=fcitx";
-    };
+    };*/
     input = {
       keyboard = {
         xkb.layout = "us,ara";
@@ -50,11 +50,6 @@
     [
       (command (lib.getExe pkgs.xwayland-satellite))
       (command (lib.getExe pkgs.waybar))
-      (command [
-        (lib.getExe pkgs.swaybg)
-        "-m" "fill"
-        "-i" "../../../assets/images/bg.1.jpg"
-      ])
       (command [
         (lib.getExe pkgs.mako)
         "--default-timeout"
