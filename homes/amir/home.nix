@@ -1,15 +1,52 @@
 { config, pkgs, inputs, lib, state-version, user-name, git-name, git-mail, ... }: {
 
   imports = [
-    ./modules
-    ./home-packages.nix
+    ./packages.nix
+    ../../modules/home/niri.nix
   ];
+
+
+
+
+
+  options = {
+    hm = {
+      modules = lib.mkOption {
+        default = [ ];
+        type = with lib.types; listOf raw;
+        description = "Modules to be included by home manager";
+      };
+      stateVersion = lib.mkOption {
+        default = "23.11";
+        type = lib.types.str;
+        description = "State Version of home-manager. DON'T CHANGE UNLESS NESSESAIRY!";
+      };
+    };
+  };
+
+
+
+
+
 
   home = {
     username = user-name;
     homeDirectory = "/home/${user-name}";
     stateVersion = state-version;
   };
+
+
+
+  nixpkgs.config.allowUnfree = true;
+
+  /*home.packages = with pkgs; [
+    vesktop
+    telegram-desktop
+    dino
+  ];*/
+
+
+
 
   # configure dotfiles (e.g., fish, git)
   programs.fish = {
@@ -91,13 +128,13 @@
   qt = {
     enable = true;
     platformTheme.name = "adwaita-dark";
-  };
+  };*/
 
 
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/http" = "zen-browser.desktop";
     "x-scheme-handler/https" = "zen-browser.desktop";
-  };*/
+  };
 
 
   # let Home Manager manage itself (required)

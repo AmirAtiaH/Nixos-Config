@@ -13,7 +13,7 @@
       ../../modules/nixos/fish.nix
       ../../modules/nixos/gaming.nix
      # ../../modules/nixos/desktop/gnome.nix
-      ../../modules/nixos/desktop/niri.nix
+      ../../modules/nixos/desktop/niri/default.nix
       ../../modules/nixos/stylix.nix
       ../../modules/nixos/kernel.nix
       ../../modules/nixos/localization.nix

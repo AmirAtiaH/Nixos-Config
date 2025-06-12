@@ -22,6 +22,9 @@
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # niri
+    niri.url = "github:sodiboo/niri-flake";
   };
 
   outputs = { nixpkgs, home-manager, stylix, ... } @ inputs:

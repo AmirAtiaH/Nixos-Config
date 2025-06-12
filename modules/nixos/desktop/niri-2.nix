@@ -9,6 +9,7 @@
   systemd = {
     user.services = {
       polkit-gnome-authentication-agent-1 = {
+        enable = true;
         description = "polkit-gnome-authentication-agent-1";
         wantedBy = [ "graphical-session.target" ];
         wants = [ "graphical-session.target" ];
@@ -21,6 +22,7 @@
           TimeoutStopSec = 10;
         };
       };
+ 
       niri-flake-polkit.enable = true;
 
       cliphist = {
@@ -33,7 +35,7 @@
       };
     };
   };
-
+ 
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -79,11 +81,6 @@
     xwayland-satellite
     cliphist
   ];
-
-  /*environment.pathsToLink = [
-    "/share/xdg-desktop-portal"
-    "/share/applications"
-  ];*/
 
   programs = {
     niri = {
